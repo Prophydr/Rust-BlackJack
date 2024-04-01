@@ -1,12 +1,8 @@
-// mod shoe;
-// use shoe::shoe::Shoe;
 mod game;
-// use game::game
-
 
 fn main() {
 
-    // game 
+    // game
     // let mut shoe: Shoe = Shoe::new(1, false);
 
     // for i in 0..shoe.decks.len() + 1 {
@@ -16,5 +12,4 @@ fn main() {
     //     print!("Value: {0} ", card.number);
     //     println!("Unicode: {0} ", card.unicode);
     // }
-
 }

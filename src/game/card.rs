@@ -1,4 +1,3 @@
-
 use strum_macros::EnumIter;
 
 #[derive(Debug, Clone)]
