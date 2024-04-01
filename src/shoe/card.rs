@@ -2,6 +2,7 @@
 pub mod card {
     use strum_macros::EnumIter;
 
+    #[derive(Debug, Clone)]
     pub struct Card {
         pub suit: Suits,
         pub number: u8,
@@ -63,7 +64,7 @@ pub mod card {
         }
     }
 
-    #[derive(EnumIter, strum_macros::Display, Clone, Copy)]
+    #[derive(Debug,EnumIter, strum_macros::Display, Clone, Copy)]
     pub(crate) enum Suits {
         #[strum(to_string = "♣")]
         Clubs,
