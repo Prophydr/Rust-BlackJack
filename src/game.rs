@@ -1,9 +1,12 @@
 mod shoe;
+mod card;
 mod individual;
 use shoe::Shoe;
 
-    pub struct game {
-        shoe: Shoe,
-        // player:
-        // dealer: indeviudal::dealer,
-    }
+use individual::{Dealer, Player};
+
+pub struct Game {
+    shoe: Shoe,
+    player: Vec<Player>,
+    dealer: Dealer
+}

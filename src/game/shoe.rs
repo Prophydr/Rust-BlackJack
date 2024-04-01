@@ -1,9 +1,10 @@
-pub mod card;
-
-use card::{Card, Suits};
+// use card::Card;
+// use super::card::{Card, Suits};
+use super::card::{Card, Suits};
 use rand::seq::SliceRandom;
 use rand::thread_rng;
 use strum::IntoEnumIterator;
+
 
 pub struct Shoe {
     pub number_of_decks: u8,
