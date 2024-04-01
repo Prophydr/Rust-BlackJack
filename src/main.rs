@@ -17,7 +17,7 @@ use shoe::shoe::Shoe;
 
 fn main() {
 
-    let shoe: Shoe = Shoe::new(6, false);
+    let mut shoe: Shoe = Shoe::new(1, false);
 
     // let suit_size = 14;
 
@@ -31,12 +31,13 @@ fn main() {
     // }
 
 
-    // for card in shoe.decks  {
-    //     print!("Card: {0} ", card.name);
-    //     print!("Suit: {0} ", card.suit);
-    //     print!("Value: {0} ", card.number);
-    //     println!("Unicode: {0} ", card.unicode);
-    // }
+    for i in 0..shoe.decks.len() + 1 {
+        let card = shoe.get_last_card();
+        print!("Card: {0} ", card.name);
+        print!("Suit: {0} ", card.suit);
+        print!("Value: {0} ", card.number);
+        println!("Unicode: {0} ", card.unicode);
+    }
 
     
         

@@ -9,6 +9,7 @@ pub mod shoe {
     pub struct Shoe {
         pub number_of_decks: u8,
         pub decks: Vec<Card>,
+        pub discard: Vec<Card>
     }
 
     impl Shoe {
@@ -16,6 +17,7 @@ pub mod shoe {
             Self {
                 number_of_decks,
                 decks: Self::create_decks(number_of_decks, shuffle),
+                discard: Vec::new(),
             }
         }
 
@@ -49,5 +51,30 @@ pub mod shoe {
         pub fn shuffle(&mut self) {
             self.decks.shuffle(&mut thread_rng());
         }
+
+        pub fn get_last_card(&mut self) -> Card
+        {
+            
+            let card = self.decks.pop();
+            
+            match card {
+                Some(c) => 
+                {
+                    self.discard.push(c.clone());
+                    return c;
+                },
+                None => 
+                {
+                    self.decks.append(&mut self.discard);
+
+                    self.shuffle();
+
+                    return Self::get_last_card(self);
+                },
+            }
+
+
+        }
+
     }
 }
