@@ -3,6 +3,8 @@ use rand::seq::SliceRandom;
 use rand::thread_rng;
 use strum::IntoEnumIterator;
 
+
+#[derive(Debug)]
 pub struct Shoe {
     pub number_of_decks: u8,
     pub decks: Vec<Card>,

@@ -3,7 +3,7 @@ use strum_macros::EnumIter;
 #[derive(Debug, Clone)]
 pub struct Card {
     pub suit: Suits,
-    pub number: u8,
+    pub value: u8,
     pub name: String,
     pub unicode: char,
 }
@@ -12,7 +12,7 @@ impl Card {
     pub fn new(suit: Suits, value: u8) -> Self {
         Self {
             suit,
-            number: Card::get_value(value),
+            value: Card::get_value(value),
             name: Card::get_name_from_value(value),
             unicode: Card::get_unicode(suit, value),
         }

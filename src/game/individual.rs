@@ -1,43 +1,52 @@
 use super::card::Card;
 
+#[derive(Debug)]
 pub struct Player {
     pub cards: Vec<Card>,
+    pub name: String
 }
 
+#[derive(Debug)]
 pub struct Dealer {
     pub cards: Vec<Card>,
 }
 
-trait Individual {
-    fn new() -> Self;
-    fn set_card(&self);
+pub trait Individual {
+    fn set_card(&mut self, card: Card);
     fn sum(&self) -> u8;
 }
 
 impl Individual for Player {
-    fn new() -> Self {
-        Self { cards: Vec::new() }
-    }
-
-    fn set_card(&self) {
-        todo!()
+    fn set_card(&mut self, card: Card) {
+        self.cards.push(card);
     }
 
     fn sum(&self) -> u8 {
-        todo!()
+        self.cards.iter().map(|s| s.value).sum()
+    }
+}
+impl Player {
+    pub fn new(name: String) -> Self {
+        Self { 
+            cards: Vec::new(),
+            name, 
+        }
     }
 }
 
-impl Individual for Dealer {
-    fn new() -> Self {
-        Self { cards: Vec::new() }
-    }
 
-    fn set_card(&self) {
-        todo!()
+impl Individual for Dealer {
+
+    fn set_card(&mut self, card: Card) {
+        self.cards.push(card);
     }
 
     fn sum(&self) -> u8 {
-        todo!()
+        self.cards.iter().map(|s| s.value).sum()
+    }
+}
+impl Dealer {
+    pub fn new() -> Self {
+        Self { cards: Vec::new() }
     }
 }
