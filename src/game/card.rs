@@ -6,6 +6,8 @@ pub struct Card {
     pub value: u8,
     pub name: String,
     pub unicode: char,
+    pub back: char,
+    pub face_up: bool,
 }
 
 impl Card {
@@ -15,6 +17,8 @@ impl Card {
             value: Card::get_value(value),
             name: Card::get_name_from_value(value),
             unicode: Card::get_unicode(suit, value),
+            back: char::from_u32(u32::from_str_radix("1F0A0", 16).expect("shit fuck")).expect("double fucked"),
+            face_up: false,
         }
     }
     fn get_name_from_value(value: u8) -> String {

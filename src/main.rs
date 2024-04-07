@@ -14,7 +14,10 @@ fn main() {
         players.push(get_user_string_data(format!("Name of player {}: ", index+1)));
     }
 
-    let game: Game = Game::new(number_of_decks, players, true );
+    let mut game: Game = Game::new(number_of_decks, players, true );
+
+
+    game.start()
 
 
     // for i in 0..shoe.decks.len() + 1 {

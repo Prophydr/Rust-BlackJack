@@ -51,12 +51,13 @@ impl Shoe {
         self.decks.shuffle(&mut thread_rng());
     }
 
-    pub fn get_last_card(&mut self) -> Card {
-        let card = self.decks.pop();
+    pub fn get_last_card(&mut self, face_up: bool) -> Card {
+        let mut card = self.decks.pop();
 
         match card {
-            Some(c) => {
+            Some(mut c) => {
                 self.discard.push(c.clone());
+                c.face_up = face_up;
                 return c;
             }
             None => {
@@ -64,7 +65,7 @@ impl Shoe {
 
                 self.shuffle();
 
-                return Self::get_last_card(self);
+                return Self::get_last_card(self, face_up);
             }
         }
     }
