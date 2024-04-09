@@ -16,6 +16,10 @@ fn main() {
 
     let mut game: Game = Game::new(number_of_decks, players, true );
 
+    println!("");
+    println!("");
+    println!("");
+    println!("");
 
     game.start()
 
@@ -44,15 +48,15 @@ fn get_user_string_data(print_string: String) -> String {
 
 fn get_user_num_data(print_string: String) -> u8 {
     
-    print!("{}", print_string);
-    io::Write::flush(&mut io::stdout()).unwrap(); // Flush stdout to ensure prompt is displayed immediately
-
-    let mut input = String::new();
-    io::stdin().read_line(&mut input)
-        .expect("Failed to read line");
-
     let mut number: u8 = 0;
     while number == 0 {
+        print!("{}", print_string);
+        io::Write::flush(&mut io::stdout()).unwrap(); // Flush stdout to ensure prompt is displayed immediately
+
+        let mut input = String::new();
+        io::stdin().read_line(&mut input)
+            .expect("Failed to read line");
+
         // Parse the input into a u8
         number = match input.trim().parse() {
             Ok(num) => {

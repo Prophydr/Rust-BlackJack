@@ -37,13 +37,9 @@ impl Player {
 }
 impl fmt::Display for Player {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        if let Some(width) = f.width() {
-            // If we received a width, we use it
-            write!(f, "{}{}\n{}{})", "\t".repeat(width), String::from_iter(self.cards.iter().map(|f| f.unicode)), "\t".repeat(width), self.sum())
-        } else {
-            // Otherwise we do nothing special
-            write!(f, "{}\n{})", String::from_iter(self.cards.iter().map(|f| f.unicode)), self.sum())
-        }
+    
+        write!(f, "{})", String::from_iter(self.cards.iter().map(|f| f.unicode)))
+        
     }
 }
 
@@ -75,13 +71,8 @@ impl fmt::Display for Dealer {
                 cards.push(c.back)
             }
         }
+        
+        write!(f, "{}", cards,)
 
-        if let Some(width) = f.width() {
-            // If we received a width, we use it
-            write!(f, "{}{}\n{}{}", "\t".repeat(width), cards, "\t".repeat(width), self.sum())
-        } else {
-            // Otherwise we do nothing special
-            write!(f, "{}\nt{}", cards, self.sum())
-        }
     }
 }
